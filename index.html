@@ -101,8 +101,8 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
       letter-spacing:.08em; filter:drop-shadow(0 3px 16px #c9a84c44);
     }
-    .hero-sub { font-size:16px; color:var(--text-soft); margin-top:10px; letter-spacing:.14em; }
-    .hero-pill { display:inline-block; margin-top:18px; padding:10px 26px; border:1.5px solid #e8d08a88; border-radius:100px; font-size:15px; letter-spacing:.14em; color:var(--gold); background:rgba(255,253,248,.75); backdrop-filter:blur(6px); }
+    .hero-sub { font-size:18px; color:var(--text-soft); margin-top:10px; letter-spacing:.14em; }
+    .hero-pill { display:inline-block; margin-top:18px; padding:10px 26px; border:1.5px solid #e8d08a88; border-radius:100px; font-size:17px; letter-spacing:.14em; color:var(--gold); background:rgba(255,253,248,.75); backdrop-filter:blur(6px); }
 
     .scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-size:14px; color:var(--text-soft); letter-spacing:.12em; animation:hintBounce 2.2s ease-in-out infinite; }
     @keyframes hintBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(9px);}}
@@ -120,7 +120,7 @@
     .cf-bl{bottom:8px;left:12px;transform:rotate(25deg);}
     .cf-br{bottom:8px;right:12px;transform:rotate(-25deg) scaleX(-1);}
 
-    .sec-lbl { font-size:15px; letter-spacing:.22em; color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+    .sec-lbl { font-size:17px; letter-spacing:.22em; color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
     .sec-lbl::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,#e8d08a55,transparent);}
     .sec-lbl::after {content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#e8d08a55);}
 
@@ -133,19 +133,19 @@
     .chip { background:linear-gradient(145deg,#fdf8f0,#fef6e4); border:1.5px solid #e8d08a33; border-radius:18px; padding:16px 8px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:5px; transition:transform .25s,box-shadow .25s; }
     .chip:hover{transform:translateY(-5px);box-shadow:0 8px 28px #c9a84c22;}
     .chip-ico{font-size:24px;} .chip-lbl{font-size:10px;color:var(--text-soft);letter-spacing:.1em;}
-    .chip-val{font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;font-size:16px;color:var(--gold);line-height:1.2;}
+    .chip-val{font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;font-size:18px;color:var(--gold);line-height:1.2;}
     .chip-val small{font-size:10px;color:var(--text-soft);}
 
     /* quote */
     .qbox { background:linear-gradient(145deg,#fdf4f9,#fef9f0); border-radius:20px; border:1.5px solid #e8a0b422; padding:22px 24px 18px; }
-    .qmark { font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:96px; line-height:.4; background:linear-gradient(135deg,#c9a84c,#e8d08a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:block; margin-bottom:14px; }
-    .qtext { font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:22px; line-height:1.9; color:var(--text); }
+    .qmark { font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:72px; line-height:.4; background:linear-gradient(135deg,#c9a84c,#e8d08a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:block; margin-bottom:14px; }
+    .qtext { font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:18px; line-height:2; color:var(--text); letter-spacing:0.04em; }
     .qby { margin-top:12px; text-align:right; font-size:14px; color:var(--text-soft); }
 
     /* ── 留言表單（純填寫，送出不顯示列表） ── */
     .cmt-form { display:flex; flex-direction:column; gap:14px; }
 
-    .inp { width:100%; padding:14px 18px; border:1.5px solid #e8d08a66; border-radius:14px; font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:15px; color:var(--text); background:linear-gradient(145deg,#fdf8f0,#fdfaf5); outline:none; transition:border-color .2s,box-shadow .2s; }
+    .inp { width:100%; padding:14px 18px; border:1.5px solid #e8d08a66; border-radius:14px; font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:17px; color:var(--text); background:linear-gradient(145deg,#fdf8f0,#fdfaf5); outline:none; transition:border-color .2s,box-shadow .2s; }
     .inp:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c9a84c18;}
     .inp::placeholder{color:#c8aa80;font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;}
     textarea.inp{resize:none;min-height:100px;line-height:1.7;}
@@ -166,8 +166,8 @@
     .success-icon { font-size:56px; animation:successPop .5s cubic-bezier(.34,1.56,.64,1) both; }
     @keyframes successPop{from{transform:scale(0);}to{transform:scale(1);}}
     .success-title { font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:28px; background:linear-gradient(135deg,#a8883a,#c9a84c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .success-sub { font-size:15px; color:var(--text-soft); line-height:1.9; }
-    .retry-btn { margin-top:4px; padding:10px 30px; background:none; border:1.5px solid #e8d08a88; border-radius:100px; font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:15px; color:var(--gold); cursor:pointer; transition:background .2s; }
+    .success-sub { font-size:17px; color:var(--text-soft); line-height:1.9; }
+    .retry-btn { margin-top:4px; padding:10px 30px; background:none; border:1.5px solid #e8d08a88; border-radius:100px; font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif; font-size:17px; color:var(--gold); cursor:pointer; transition:background .2s; }
     .retry-btn:hover{background:var(--gold-pale);}
 
     /* toast */
@@ -177,7 +177,7 @@
     /* footer */
     footer { position:relative; z-index:1; text-align:center; padding:30px 24px 56px; }
     .ft-orn{font-size:22px;letter-spacing:10px;opacity:.65;display:block;margin-bottom:8px;}
-    .ft-txt{font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;font-size:17px;color:var(--text-soft);line-height:2.4;}
+    .ft-txt{font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;font-size:19px;color:var(--text-soft);line-height:2.4;}
     .ft-line{width:80px;height:1px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#c9a84c88,transparent);}
 
     @media(max-width:360px){
@@ -216,7 +216,7 @@
     <div class="princess-tag">✦ 小小公主降臨 ✦</div>
     <div class="hero-nick">霓霓</div>
     <div class="hero-sub">帶著愛與幸福報到 💗</div>
-    <div class="hero-sub" style="font-size:14px;margin-top:6px;letter-spacing:.18em;">♓ 雙魚座 Pisces</div>
+    <div class="hero-sub" style="font-size:16px;margin-top:6px;letter-spacing:.18em;">♓ 雙魚座 Pisces</div>
     <div class="hero-pill">2026 年 3 月 8 日　我們等你好久了 🎀</div>
   </div>
 
@@ -239,7 +239,7 @@
       <div class="chip">
         <span class="chip-ico">🗓️</span>
         <span class="chip-lbl">出生日期</span>
-        <span class="chip-val" style="font-size:14px">2026<br>03 / 08</span>
+        <span class="chip-val" style="font-size:16px">2026<br>03 / 08</span>
       </div>
       <div class="chip">
         <span class="chip-ico">⚖️</span>
@@ -260,7 +260,7 @@
     <div class="sec-lbl">💌 爸媽的話</div>
     <div class="qbox">
       <span class="qmark">"</span>
-      <p class="qtext">霓霓，謝謝你選擇了我們。你的到來讓愛有了新的形狀，從此我們的世界因你而完整。願你一生被溫柔以待，健康平安，快樂長大 🌸</p>
+      <p class="qtext">霓霓 謝謝你選擇了我們<br>你的到來讓愛有了新的形狀<br>從此我們的世界因你而完整<br>願你一生被溫柔以待<br>健康平安 快樂長大 🌸</p>
       <p class="qby">— Daddy 浩翔 Eliot &amp; Mommy 依蒨 Vita</p>
     </div>
   </div>
@@ -374,28 +374,23 @@
     setTimeout(function(){t.classList.remove('show');},2400);
   }
 
-  /* 送出祝福到 Google Sheet */
-  var SCRIPT_URL = '/api/submit';
-
+  /* 送出 — POST 到後端 API /api/submit */
   document.getElementById('sbtn').addEventListener('click',function(){
     var name  = document.getElementById('inp-name').value.trim();
     var phone = document.getElementById('inp-phone').value.trim();
     var msg   = document.getElementById('inp-msg').value.trim();
     if(!name){ showToast('請填寫您的稱呼 🙈'); document.getElementById('inp-name').focus(); return; }
     if(!msg) { showToast('請寫下祝福話語 💌'); document.getElementById('inp-msg').focus();  return; }
-
     var btn = document.getElementById('sbtn');
     btn.textContent = '送出中...';
     btn.disabled = true;
-
-    fetch(SCRIPT_URL, {
+    fetch('/api/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name:name, phone:phone, msg:msg})
     }).then(function(r){ if(!r.ok) throw new Error('fail'); }).then(function(){
       document.getElementById('form-wrap').style.display='none';
-      var s=document.getElementById('cmt-success');
-      s.style.display='flex';
+      document.getElementById('cmt-success').style.display='flex';
     }).catch(function(){
       showToast('送出失敗，請稍後再試 😢');
     }).finally(function(){

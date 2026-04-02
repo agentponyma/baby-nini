@@ -1,1 +1,4 @@
 setup-sheet.py
+_ref/
+.vercel
+.env*.local
