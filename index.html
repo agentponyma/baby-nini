@@ -384,7 +384,7 @@
     var btn = document.getElementById('sbtn');
     btn.textContent = '送出中...';
     btn.disabled = true;
-    fetch('/api/submit', {
+    fetch('https://nini-form.agentponyma.workers.dev', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name:name, phone:phone, msg:msg})
