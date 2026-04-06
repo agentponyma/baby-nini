@@ -187,9 +187,19 @@
     .video-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1.5px solid #e8d08a44;box-shadow:0 4px 20px #c9a84c1a;}
     .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
 
-    /* ── 寫真區（全幅） ── */
-    .fullphoto-section{padding:0;margin:0;}
-    .fullphoto-section img{width:100%;height:auto;display:block;}
+    /* ── 寫真輪播 ── */
+    .photo-carousel{position:relative;width:100%;overflow:hidden;touch-action:pan-y;user-select:none;}
+    .carousel-track{display:flex;transition:transform .6s cubic-bezier(.25,.46,.45,.94);scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+    .carousel-slide{flex:0 0 100%;width:100%;scroll-snap-align:start;}
+    .carousel-slide img{width:100%;height:auto;display:block;}
+    .carousel-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,253,248,.5);border:none;cursor:pointer;transition:background .3s,transform .3s;}
+    .carousel-dot.active{background:#e8d08a;transform:scale(1.3);}
+    .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,253,248,.85);border:1.5px solid #e8d08a88;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);cursor:pointer;z-index:10;backdrop-filter:blur(8px);transition:background .2s,transform .2s;}
+    .carousel-arrow:hover{background:rgba(255,253,248,1);transform:translateY(-50%) scale(1.1);}
+    .carousel-arrow.prev{left:16px;}
+    .carousel-arrow.next{right:16px;}
+    .carousel-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,.15) 100%);pointer-events:none;}
 
     @media(max-width:400px){.video-grid{grid-template-columns:1fr;}}
       .photo-wrap{width:200px;height:200px;}
@@ -232,10 +242,20 @@
   <div class="scroll-hint">向下探索 ↓</div>
 </section>
 
-<!-- ══ 寫真區（全幅無框） ══ -->
-<section class="fullphoto-section">
-  <img src="nini-full.jpg" alt="霓霓寫真">
-</section>
+<!-- ══ 寫真輪播 ══ -->
+<div class="photo-carousel" id="photoCarousel">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide"><img src="nini-photo-1.jpg" alt="霓霓寫真 1"></div>
+    <div class="carousel-slide"><img src="nini-photo-2.jpg" alt="霓霓寫真 2"></div>
+    <div class="carousel-slide"><img src="nini-photo-3.jpg" alt="霓霓寫真 3"></div>
+    <div class="carousel-slide"><img src="nini-photo-4.jpg" alt="霓霓寫真 4"></div>
+    <div class="carousel-slide"><img src="nini-photo-5.jpg" alt="霓霓寫真 5"></div>
+  </div>
+  <div class="carousel-overlay"></div>
+  <button class="carousel-arrow prev" id="carouselPrev">‹</button>
+  <button class="carousel-arrow next" id="carouselNext">›</button>
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
 
 <!-- ══ CONTENT ══ -->
 <div class="content">
@@ -342,7 +362,7 @@
   <span class="ft-orn">✦ 🌙 ✦</span>
   <div class="ft-txt">每一份祝福，霓霓都收到了 💗<br>謝謝你們，陪我們一起迎接這份幸福 🌸</div>
   <div class="ft-line"></div>
-  <div style="margin-top:12px;font-size:11px;color:#c8aa80;letter-spacing:.06em;">v5 · 2026-04-06</div>
+  <div style="margin-top:12px;font-size:11px;color:#c8aa80;letter-spacing:.06em;">v6 · 2026-04-06</div>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -444,6 +464,58 @@
     document.getElementById('form-wrap').style.display='';
     document.getElementById('inp-name').focus();
   });
+
+  /* ── 寫真輪播 ── */
+  (function(){
+    var track = document.getElementById('carouselTrack');
+    var dots  = document.getElementById('carouselDots');
+    var slides = track.querySelectorAll('.carousel-slide');
+    var total  = slides.length;
+    var cur    = 0;
+    var timer  = null;
+
+    // 建立 dots
+    for(var i=0;i<total;i++){
+      var d=document.createElement('button');
+      d.className='carousel-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','第'+(i+1)+'張');
+      d.addEventListener('click',function(){ goTo(Array.from(dots.children).indexOf(this)); });
+      dots.appendChild(d);
+    }
+
+    function goTo(idx){
+      cur=(idx+total)%total;
+      track.style.transform='translateX(-'+cur+'00%)';
+      Array.from(dots.children).forEach(function(d,i){ d.classList.toggle('active',i===cur); });
+    }
+
+    function next(){ goTo(cur+1); }
+
+    function startTimer(){
+      timer=setInterval(next,4000);
+    }
+    function stopTimer(){ clearInterval(timer); }
+
+    document.getElementById('carouselPrev').addEventListener('click',function(){ stopTimer(); goTo(cur-1); startTimer(); });
+    document.getElementById('carouselNext').addEventListener('click',function(){ stopTimer(); next(); startTimer(); });
+
+    // Touch / swipe
+    var startX=0,startY=0,dragging=false;
+    var c = document.getElementById('photoCarousel');
+    c.addEventListener('touchstart',function(e){
+      startX=e.touches[0].clientX; startY=e.touches[0].clientY; dragging=true; stopTimer();
+    },{passive:true});
+    c.addEventListener('touchmove',function(e){ if(!dragging)return; var dx=e.touches[0].clientX-startX,dy=e.touches[0].clientY-startY; if(Math.abs(dx)>Math.abs(dy))e.preventDefault(); },{passive:false});
+    c.addEventListener('touchend',function(e){
+      if(!dragging)return;
+      var dx=e.changedTouches[0].clientX-startX;
+      if(dx>50) goTo(cur-1);
+      else if(dx<-50) next();
+      startTimer(); dragging=false;
+    });
+
+    startTimer();
+  })();
 </script>
 </body>
 </html>
