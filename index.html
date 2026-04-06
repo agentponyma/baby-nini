@@ -181,7 +181,7 @@
     .ft-line{width:80px;height:1px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#c9a84c88,transparent);}
 
     /* ── 影片區 ── */
-    .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+    .video-grid{display:flex;flex-direction:column;gap:18px;margin-top:4px;}
     .video-card{display:flex;flex-direction:column;gap:10px;}
     .video-title{font-size:14px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-align:center;}
     .video-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1.5px solid #e8d08a44;box-shadow:0 4px 20px #c9a84c1a;}
@@ -291,41 +291,17 @@
     <div class="sec-lbl">🎬 彌月紀念</div>
     <div class="video-grid">
       <div class="video-card">
-        <div class="video-title">👶 哥哥彌月 2024/07/11</div>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube-nocookie.com/embed/QUfmCeFuujg" title="哥哥彌月" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="video-card">
         <div class="video-title">👧 妹妹彌月 2026/04/02</div>
         <div class="video-wrap">
           <iframe src="https://www.youtube-nocookie.com/embed/ogMF6G1bcqg" title="妹妹彌月" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- 備用：玉蘭圖連結（若 iframe 無法播放請至此區塊） -->
-  <div class="royal-card reveal">
-    <div class="cf cf-tl">🌸</div><div class="cf cf-tr">🌸</div>
-    <div class="sec-lbl">🎬 彌月紀念</div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <a href="https://youtu.be/QUfmCeFuujg" target="_blank" style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(145deg,#fdf8f0,#fef6e4);border:1.5px solid #e8d08a33;border-radius:16px;text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #c9a84c22'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <span style="font-size:28px;">👶</span>
-        <div>
-          <div style="font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.08em;">哥哥彌月</div>
-          <div style="font-size:13px;color:var(--text-soft);">2024 / 07 / 11 🎋</div>
+      <div class="video-card">
+        <div class="video-title">👶 哥哥彌月 2024/07/11</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/QUfmCeFuujg" title="哥哥彌月" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <span style="margin-left:auto;font-size:20px;color:var(--gold-lt);">▶</span>
-      </a>
-      <a href="https://youtu.be/ogMF6G1bcqg" target="_blank" style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(145deg,#fdf8f0,#fef6e4);border:1.5px solid #e8d08a33;border-radius:16px;text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #c9a84c22'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <span style="font-size:28px;">👧</span>
-        <div>
-          <div style="font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.08em;">妹妹彌月</div>
-          <div style="font-size:13px;color:var(--text-soft);">2026 / 04 / 02 🌸</div>
-        </div>
-        <span style="margin-left:auto;font-size:20px;color:var(--gold-lt);">▶</span>
-      </a>
+      </div>
     </div>
   </div>
 
