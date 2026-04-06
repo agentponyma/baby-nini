@@ -180,7 +180,22 @@
     .ft-txt{font-family:'DFKai-SB','標楷體','BiauKai','Noto Serif TC',serif;font-size:19px;color:var(--text-soft);line-height:2.4;}
     .ft-line{width:80px;height:1px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#c9a84c88,transparent);}
 
-    @media(max-width:360px){
+    /* ── 影片區 ── */
+    .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+    .video-card{display:flex;flex-direction:column;gap:10px;}
+    .video-title{font-size:14px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-align:center;}
+    .video-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1.5px solid #e8d08a44;box-shadow:0 4px 20px #c9a84c1a;}
+    .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
+
+    /* ── 寫真區 ── */
+    .fullphoto-wrap{position:relative;width:260px;height:340px;margin:0 auto;}
+    .fp-ring{width:100%;height:100%;border-radius:40px;padding:5px;background:conic-gradient(from 0deg,#c9a84c 0%,#f7efc8 22%,#e8d08a 40%,#c9a84c 55%,#f7efc8 72%,#e8d08a 88%,#c9a84c 100%);box-shadow:0 0 0 4px #fffdf8,0 0 0 7px #e8d08a66,0 14px 50px #c9a84c2e;animation:ringGlow 4s ease-in-out infinite;}
+    .fp-ring-inner{width:100%;height:100%;border-radius:36px;overflow:hidden;border:3px solid #fffdf8;background:linear-gradient(145deg,#fde8ef,#fce4d6);display:flex;align-items:center;justify-content:center;}
+    .fp-ring-inner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+    .fp-orn{position:absolute;font-size:18px;z-index:3;filter:drop-shadow(0 1px 4px #c9a84c77);animation:ornShimmer 2.5s ease-in-out infinite;}
+    .fp-orn-tl{top:14px;left:14px;}.fp-orn-tr{top:14px;right:14px;}.fp-orn-bl{bottom:14px;left:14px;}.fp-orn-br{bottom:14px;right:14px;}
+
+    @media(max-width:400px){.video-grid{grid-template-columns:1fr;}}
       .photo-wrap{width:200px;height:200px;}
       .info-row{grid-template-columns:1fr 1fr;}
       .chip:last-child{grid-column:1/-1;}
@@ -208,8 +223,6 @@
     <span class="orn orn-tr">✦</span>
     <span class="orn orn-bl">✿</span>
     <span class="orn orn-br">✿</span>
-    <div class="sbadge sb-l">⚖️ 3,075 g</div>
-    <div class="sbadge sb-r">📏 49.5 cm</div>
   </div>
 
   <div class="hero-text" id="hero-text">
@@ -227,6 +240,24 @@
 <div class="content">
 
   <div class="ornate-sep">✦  ❋  ✦</div>
+
+  <!-- 寫真區 — 完整照片 -->
+  <div class="royal-card reveal">
+    <div class="cf cf-tl">🌸</div><div class="cf cf-tr">🌸</div>
+    <div class="cf cf-bl">✨</div><div class="cf cf-br">✨</div>
+    <div class="sec-lbl">📷 寫真區</div>
+    <div class="fullphoto-wrap">
+      <div class="fp-ring">
+        <div class="fp-ring-inner">
+          <img src="nini-full.jpg" alt="霓霓寫真">
+        </div>
+      </div>
+      <div class="fp-orn fp-orn-tl">✦</div>
+      <div class="fp-orn fp-orn-tr">✦</div>
+      <div class="fp-orn fp-orn-bl">✿</div>
+      <div class="fp-orn fp-orn-br">✿</div>
+    </div>
+  </div>
 
   <!-- 寶寶資訊 -->
   <div class="royal-card reveal">
@@ -254,7 +285,27 @@
     </div>
   </div>
 
-  <!-- 彌月影片 -->
+  <!-- 彌月影片（iframe 直嵌） -->
+  <div class="royal-card reveal">
+    <div class="cf cf-tl">🌸</div><div class="cf cf-tr">🌸</div>
+    <div class="sec-lbl">🎬 彌月紀念</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-title">👶 哥哥彌月 2024/07/11</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/QUfmCeFuujg" title="哥哥彌月" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-title">👧 妹妹彌月 2026/04/02</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/ogMF6G1bcqg" title="妹妹彌月" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 備用：玉蘭圖連結（若 iframe 無法播放請至此區塊） -->
   <div class="royal-card reveal">
     <div class="cf cf-tl">🌸</div><div class="cf cf-tr">🌸</div>
     <div class="sec-lbl">🎬 彌月紀念</div>
@@ -377,7 +428,8 @@
   gsap.from('#photo-wrap',{scale:.5,opacity:0,duration:1.1,ease:'back.out(1.8)',delay:.2});
   gsap.from('.crown',     {y:-30,opacity:0,duration:.8,ease:'back.out(2.2)',delay:.95});
   gsap.from('#hero-text', {y:36,opacity:0,duration:1,ease:'power3.out',delay:.6});
-  gsap.from('.sbadge',    {scale:0,opacity:0,duration:.7,stagger:.18,ease:'back.out(2.5)',delay:1.1});
+  gsap.from('.fullphoto-wrap',{y:40,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.fullphoto-wrap',start:'top 85%'}});
+
   document.querySelectorAll('.reveal').forEach(function(el){
     gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%'},y:52,opacity:0,duration:.9,ease:'power3.out'});
   });
